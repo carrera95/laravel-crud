@@ -9,9 +9,9 @@ use App\Models\Curso;
 class CursoController extends Controller
 {
     public function index(){
-        $curso = Curso::orderBy('id', 'desc')->paginate();
+        $cursos = Curso::orderBy('id', 'desc')->paginate();
 
-        return view('cursos.index', compact('curso'));
+        return view('cursos.index', compact('cursos'));
     }
 
     public function create(){
@@ -27,7 +27,7 @@ class CursoController extends Controller
 
     public function show(Curso $curso)
     {
-        return view('cursos.show', ['curso' => $curso]);
+        return view('cursos.show', compact('curso'));
     }
 
     public function edit(Curso $curso)
@@ -40,6 +40,7 @@ class CursoController extends Controller
         $request->validate(
         [//Rules
             'name' => 'required | string | min:5',
+            'slug' => 'required|unique:cursos, slug,'.$curso->id,
             'description' => 'required',
             'categoria' => 'required',
         ],

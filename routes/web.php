@@ -24,12 +24,14 @@ Route::get('/', HomeController::class);
 // Route::get('curso/create', [CursoController::class, 'create']);
 // Route::get('curso/{curso}', [CursoController::class, 'show']);
 
-Route::controller(CursoController::class)->group(function(){
-    Route::get('curso', 'index')->name('cursos.index');
-    Route::get('curso/create', 'create')->name('cursos.create');
-    Route::post('curso', 'store')->name('curso.store');
-    Route::get('curso/{curso}', 'show')->name('cursos.show');
-    Route::get('curso/{curso}/edit', 'edit')->name('cursos.edit');
-    Route::put('cursos/{curso}', 'update')->name('cursos.update');
-    Route::delete('curso/{curso}', 'destroy')->name('cursos.destroy');
-});
+// Route::controller(CursoController::class)->group(function(){
+//     Route::get('cursos', 'index')->name('cursos.index');
+//     Route::get('cursos/create', 'create')->name('cursos.create');
+//     Route::post('curso', 'store')->name('curso.store');
+//     Route::get('cursos/{curso}', 'show')->name('cursos.show');
+//     Route::get('cursos/{curso}/edit', 'edit')->name('cursos.edit');
+//     Route::put('cursos/{curso}', 'update')->name('cursos.update');
+//     Route::delete('curso/{curso}', 'destroy')->name('cursos.destroy');
+// });
+
+Route::resource('cursos', CursoController::class);

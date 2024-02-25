@@ -6,12 +6,12 @@
     <h1>Bienvenido a la pagina index</h1>
     <a href="{{route('cursos.create')}}">Create Course</a>
     <ul>
-        @foreach ($curso as $item)
+        @foreach ($cursos as $curso)
             <li>
-                <a href="{{ route('cursos.show', $item->id) }}">{{ $item->name }}</a>
+                <a href="{{ route('cursos.show', $curso) }}">{{ $curso->name }}</a>
             </li>
         @endforeach
     </ul>
 
-    {{ $curso->links() }}
+    {{ $cursos->links() }}
 @endsection

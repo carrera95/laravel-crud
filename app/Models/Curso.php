@@ -18,7 +18,11 @@ class Curso extends Model
 
     //Instead of protecting the fields that are increasing into db, we protect
     //data that is not gonna get into the form 
-    protected $guarded =[
+    protected $guarded =[];
 
-    ];
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
+ 
